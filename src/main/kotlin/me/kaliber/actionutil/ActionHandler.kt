@@ -10,7 +10,7 @@ class ActionHandler(private val manager: ActionManager, private val plugin: Plug
 
     fun executeAction(player: Player, line: String)
     {
-        val id = line.substringAfter('[').substringBefore(']')
+        val id = line.substringAfter('[').substringBefore(']').lowercase()
         val action = manager[id] ?: return "[$id] is not a valid action identifier!".log(plugin)
         val data = line.substringAfter(']').trim().format(player)
 
