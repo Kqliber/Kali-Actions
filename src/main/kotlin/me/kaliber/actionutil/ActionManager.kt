@@ -43,14 +43,14 @@ class ActionManager(private val plugin: Plugin, defaults: Boolean = true)
         defaultsList.forEach { it.register(plugin) }
     }
 
-    fun String.execute(player: Player)
+    fun execute(player: Player, data: String)
     {
-        actionHandler.executeAction(player, this)
+        actionHandler.executeAction(player, data)
     }
 
-    fun List<String>.execute(player: Player)
+    fun execute(player: Player, data: List<String>)
     {
-        forEach { it.execute(player) }
+        data.forEach { execute(player, it) }
     }
 
 }
