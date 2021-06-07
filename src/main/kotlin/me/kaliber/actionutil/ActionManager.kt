@@ -33,6 +33,11 @@ class ActionManager(private val plugin: Plugin, defaults: Boolean = true)
         return actions[actionId]
     }
 
+    operator fun minusAssign(actionId: String)
+    {
+        actions -= actionId
+    }
+
     fun register(action: Action)
     {
         actions[action.id] = action
